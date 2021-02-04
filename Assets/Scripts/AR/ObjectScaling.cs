@@ -36,7 +36,7 @@ public class ObjectScaling : MonoBehaviour
     /// Change the slider minvalue, maxvalue & current value
     /// </summary>
     /// <param name="normalSize">The current value, one dimension of the scale property</param>
-    public void ChangeSliderValues(float normalSize)
+    public void ChangeSliderBaseValues(float normalSize)
     {
         float maximum = normalSize * 1.9f; //maximum is 190%
         float minimum = normalSize * 0.1f; //minimum is 10%
@@ -46,4 +46,21 @@ public class ObjectScaling : MonoBehaviour
         scaleSlider.value = currentValue;
     }
 
+    public void ChangeSliderValue(float value)
+    {
+        if (value > 1)
+            value = 1;
+        else if (value < -1)
+            value = -1;
+
+        float change = scaleSlider.maxValue / 50;
+        change *= value;
+
+        scaleSlider.value += change;
+    }
+
+    public float CurrentSize
+    {
+        get => scaleSlider.value;
+    }
 }

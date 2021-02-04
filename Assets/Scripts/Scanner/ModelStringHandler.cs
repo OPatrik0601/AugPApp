@@ -72,6 +72,7 @@ public static class ModelStringHandler
                         //<Figure>
                         LoadedDocument.Instance.LoadedFigure.ObjFilePath = reader.GetAttribute("ObjFile");
                         LoadedDocument.Instance.LoadedFigure.MtlFilePath = reader.GetAttribute("MtlFile");
+                        LoadedDocument.Instance.LoadedFigure.Title = reader.GetAttribute("Title");
                         LoadedDocument.Instance.LoadedFigure.Id = id;
 
                         LoadedDocument.Instance.ReadyToLoad = true;

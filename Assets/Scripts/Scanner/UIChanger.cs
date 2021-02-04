@@ -52,9 +52,7 @@ public class UIChanger : MonoBehaviour
                 if(LoadedDocument.Instance.ReadyToLoad)
                 {
                     articleFound.text = "An article has been found!";
-                    string authors = "";
-                    LoadedDocument.Instance.Authors.ForEach(author => authors += $"{author.AuthorName}\n");
-                    documentInfo.text = $"Title:\n{LoadedDocument.Instance.ArticleName}\n\nAuthor(s):\n{authors}";
+                    documentInfo.text = $"Article title:\n{LoadedDocument.Instance.ArticleName}\n\nLoad this:\n{LoadedDocument.Instance.LoadedFigure.Title}";
                     loadButton.SetActive(true);
                 } else
                 {

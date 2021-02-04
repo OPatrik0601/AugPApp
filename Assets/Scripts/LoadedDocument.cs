@@ -47,5 +47,7 @@ public class LoadedDocument
         public string Id { get; set; }
         public string ObjFilePath { get; set; }
         public string MtlFilePath { get; set; }
+
+        public string Title { get; set; }
     }
 }

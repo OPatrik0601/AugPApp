@@ -92,7 +92,7 @@ public class ImageRecognition : MonoBehaviour
             newValue *= ratio; //multiple the baseScale Vector with it
             Debug.Log($"New scale: {newValue}, ratio: {ratio}");
         }
-        ObjectScaling.Instance.ChangeSliderValues(newValue.x); //we could use the y, z coordinates as well, they're the same
+        ObjectScaling.Instance.ChangeSliderBaseValues(newValue.x); //we could use the y, z coordinates as well, they're the same
         obj.transform.localScale = newValue; //resize the GameObject
     }
 
