@@ -110,12 +110,12 @@ public class InputDetection : MonoBehaviour
     //////////////////////////////////CALLBACK FUNCTIONS/////////////////////////////
     private void OnSwipeUp()
     {
-        ObjectScaling.Instance.ChangeSliderValue(1);
+        //ObjectScaling.Instance.ChangeSliderValue(1);
     }
 
     private void OnSwipeDown()
     {
-        ObjectScaling.Instance.ChangeSliderValue(-1);
+        //ObjectScaling.Instance.ChangeSliderValue(-1);
     }
 
     private void OnSwipeLeft()

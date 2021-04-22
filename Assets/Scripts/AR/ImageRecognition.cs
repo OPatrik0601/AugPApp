@@ -21,15 +21,27 @@ public class ImageRecognition : MonoBehaviour
         }
     }
     public GameObject CreatedGameObject { get; private set; } = null;
+    private ARTrackedImageManager arTrackedImageManager = null;
+
+    private void Awake() {
+        this.arTrackedImageManager = GetComponent<ARTrackedImageManager>();
+    }
+
+    private void Start() {
+        TrackingStatusManager.Instance.ChangeStatus(false);
+    }
+
+    private void Update() {
+        TrackingStatusManager.Instance.ChangeStatus(arTrackedImageManager.trackables.count > 0);
+    }
 
     public void SetObject(GameObject loadedObject)
     {
         //the original, tracked GameObject rotates towards the camera by default, so we have to make a copy of it that doesn't rotate that way.
         changeScale(loadedObject);
         loadedObject.gameObject.SetActive(false); //disable the original, tracked GO
-
-        GetComponent<ARTrackedImageManager>().trackedImagePrefab = loadedObject;
-        GetComponent<ARTrackedImageManager>().trackedImagesChanged += (arg) =>
+        arTrackedImageManager.trackedImagePrefab = loadedObject;
+        arTrackedImageManager.trackedImagesChanged += (arg) =>
         {
             if (!CreatedGameObject)
             {
